@@ -1,0 +1,223 @@
+@import url('http://fonts.cdnfonts.com/css/adobe-clean');
+
+html {
+    --img-width: 34.5vw;
+    --img-height: 50vh;
+    --img-width-mob: 99vw;
+    --img-height-mob: 40vh;
+}
+
+body {
+    /*font-family: 'Source Sans Pro', sans-serif;*/
+    font-family: 'Adobe Clean', sans-serif;
+    font-family: 'Adobe Clean Serif', sans-serif;
+    font-family: 'Adobe Clean UX', sans-serif;
+    color: #354052;
+}
+#main-content {
+    display: grid;
+    /*height: 100vh;*/
+    grid-template: 8vh 60vh auto auto 30vh/ 25vw 35vw 35vw;
+    grid-template-areas: "menu menu menu"
+                         "sidebar header header"
+                         "sidebar gallery gallery"
+                           "sidebar gallery gallery"
+                            "footer footer footer";
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+}
+@media screen and (max-width: 470px){
+    #main-content{
+        display: flex;
+        flex-direction: column;
+        /*width: 100%;*/
+    }
+}
+#menu{
+    grid-area: menu;
+    border-bottom: lightgray solid 0.1px;
+    font-size: 3vw;
+    padding: 0.6vw;
+    color: lightgray;
+}
+@media screen and (max-width: 470px){
+    #menu{
+        display: none;
+    }
+}
+#sidebar {
+    grid-area: sidebar;
+    /*background-color: red;*/
+    display: flex;
+    flex-direction: column;
+    /*height: 100vh;*/
+    font-size: 1.2vw;
+    font-weight: 400;
+    flex-wrap: nowrap;
+    line-height: 0.6vw;
+    margin-left: 2vw;
+}
+
+#sidebar h1 {
+    font-size: 2.1vw;
+    font-weight: 700;
+    line-height: 4vw;
+}
+
+#sidebar h2 {
+    font-size: 1.3vw;
+    font-weight: 700;
+}
+#more-sidebar {
+    display: none;
+}
+
+@media screen and (max-width:470px){
+    #sidebar{
+        height: 4.2vh;
+        overflow: hidden;
+        padding:2.5vw;
+
+    }
+    #sidebar h1{
+        font-size: 4.4vw;
+        display: inline;
+        line-height: 10vw;
+        margin-bottom: 3vw;
+    }
+    #more-sidebar{
+        display: inline;
+        float: right;
+        color: #354052;
+        font-size: 5vw;
+        padding-top: 3vw;
+    }
+    #sidebar-info{
+        display: none;
+    }
+
+}
+
+#header {
+    grid-area: header;
+    background-color: #F7F8FA;
+    align-items: center;
+    justify-items: center;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    padding: 2vw;
+    font-size: 2.1vw;
+    text-align: center;
+    font-weight: 400;
+    line-height: 3.5vw;
+}
+#header span {
+    font-size: 1.2vw;
+}
+@media screen and (max-width: 470px){
+    #header{
+        font-size: 4vw;
+        line-height: 6vw;
+    }
+    #header span {
+        font-size: 2.5vw;
+
+    }
+}
+
+#gallery {
+    grid-area: gallery;
+    /*background-color: gray;*/
+    display: grid;
+    /*height: 100vh;*/
+    grid-template-columns: repeat(2, 50fr);
+    row-gap: 0.3vw;
+    column-gap: 0.3vw;
+    justify-items: center;
+    align-items: center;
+    transition: filter 10ms;
+}
+
+#gallery img {
+    width: var(--img-width);
+    height: var(--img-height);
+    object-fit: cover;
+}
+
+#gallery img:hover {
+    filter: grayscale(100%);
+    color: white;
+    font-weight: 400;
+    /*background: rgb(47, 146, 172);*/
+    /*background: linear-gradient(214deg, rgba(47, 146, 172, 0.969625350140056) 0%, rgba(5, 3, 46, 0.8323704481792717) 10%);*/
+}
+.img-1-hover{
+    display: none;
+}
+#img-1:hover .img-1-hover{
+    display:block;
+}
+@media screen and (max-width: 470px){
+    #gallery{
+        display: flex;
+        flex-direction: column;
+    }
+    #gallery img{
+    width: 100%;
+    height: auto;
+    width: var(--img-width-mob);
+    height: var(--img-height-mob);
+        margin-top: 1vw;
+}
+}
+#footer {
+    grid-area: footer;
+    /*text-align: center;*/
+    padding-top: 3vw;
+    display: grid;
+    grid-template-columns:repeat(7, 14.2fr);
+}
+
+#footer-elements {
+    grid-column: 5/6;
+    text-align: center;
+    order: -1;
+}
+.icon {
+    color: dimgrey;
+    font-size: 1.5vw;
+    padding: 0.5vw;
+}
+@media screen and (max-width: 470px){
+    #footer{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .icon{
+        font-size: 5vw;
+    }
+}
+#top{
+    position: fixed;
+    /*width: 40px;*/
+    /*height: 40px;*/
+    right:3vw;
+    bottom:3vw;
+    color: white;
+    background-color: lightgray;
+    border-radius:15%;
+    font-weight:900;
+    font-size: 2.5vw;
+    padding: 5px;
+    z-index: 1;
+}
+#top:hover{
+    color: white;
+}
+@media screen and (max-width: 470px){
+    #top {
+        display: none;
+    }
+}
